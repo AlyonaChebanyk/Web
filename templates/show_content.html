@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+</head>
+<body>
+
+<a href="/nanotechnology/">Nanotechnology</a>
+<a href="/technology/">Technology</a>
+<a href="/earth/">Earth</a>
+
+{% for article in articles %}
+    <p><a href="/{{ article.id }}/">{{ article.title }}</a></p>
+{% endfor %}
+
+
+</body>
+</html>

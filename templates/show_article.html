@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+</head>
+<body>
+
+<a href="/nanotechnology/">Nanotechnology</a>
+<a href="/technology/">Technology</a>
+<a href="/earth/">Earth</a>
+
+<p>Author: {{ article.author }}</p>
+
+<h3>{{ article.title }}</h3>
+<p><img width="500px" src="{{ article.url_to_image }}" alt="image"></p>
+<p>Published data: {{ article.published_at }}</p>
+<p>Content: {{ article.content }}</p>
+
+<p>Comments</p>
+<form action="/add_comment_{{ article.id }}/" method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <input type="submit" value="Submit">
+</form>
+
+<p>Comments</p>
+
+{% for comment in comments %}
+<p>Text: {{ comment.text }}</p>
+<p>Date: {{ comment.date }}</p>
+<p>User: {{ comment.user }}</p>
+{% endfor %}
+
+</body>
+</html>
