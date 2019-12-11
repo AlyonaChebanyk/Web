@@ -9,4 +9,4 @@ class UserForm(forms.Form):
 
 
 class CommentForm(forms.Form):
-    text = forms.CharField(max_length=400, widget=forms.Textarea)
+    text = forms.CharField(max_length=100, widget=forms.Textarea(attrs={'cols': '70', 'rows': '7'}))
